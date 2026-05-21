@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Instrument Sans', system-ui, sans-serif;
+  --color-night: #080a12;
+  --color-night-elevated: #10141f;
+  --color-night-card: #141a28;
+  --color-gold: #c9a962;
+  --color-gold-soft: #e8d5a3;
+  --color-saffron: #d4a574;
+  --color-mist: #8b93a8;
+  --color-pearl: #e8eaf2;
+  --color-sacred: #6b7fd4;
+  --color-success: #5a9a7a;
+  --color-glow: rgba(201, 169, 98, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100dvh;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-night);
+  color: var(--color-pearl);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(201, 169, 98, 0.3);
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 8s ease infinite;
+}
