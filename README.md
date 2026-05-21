@@ -2,7 +2,8 @@
 
 > **多邻国的闯关节奏 + Calm 的沉浸气质 + 曼陀罗持诵** —— 开源梵语/梵文声音修习 App（React · 可本地运行）
 
-[![Live Demo](https://img.shields.io/badge/demo-本地运行-9a7b4f?style=for-the-badge)](https://github.com/Mirainthehub/sanskrit-sound#快速体验)
+[![在线体验](https://img.shields.io/badge/在线体验-GitHub_Pages-9a7b4f?style=for-the-badge)](https://mirainthehub.github.io/sanskrit-sound/)
+[![Deploy with Vercel](https://img.shields.io/badge/deploy-Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMirainthehub%2Fsanskrit-sound&project-name=sanskrit-sound&repository-name=sanskrit-sound)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 
@@ -25,6 +26,14 @@
 
 ## 快速体验
 
+### 在线 Demo（免安装）
+
+**https://mirainthehub.github.io/sanskrit-sound/**
+
+推送到 `main` 后会自动部署（约 1–2 分钟）。点 **「今日修习」** 即可试听。
+
+### 本地运行
+
 ```bash
 git clone https://github.com/Mirainthehub/sanskrit-sound.git
 cd sanskrit-sound
@@ -32,7 +41,13 @@ npm install
 npm run dev
 ```
 
-浏览器打开 **http://localhost:5173** → 点 **「今日修习」** 或 **「修行之路」**。
+浏览器打开 **http://localhost:5173**。
+
+### 部署到自己的 Vercel（可选）
+
+1. 点击 README 顶部 **[Deploy with Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMirainthehub%2Fsanskrit-sound)**  
+2. 用 GitHub 登录 → Import → Deploy（无需改配置，`vercel.json` 已写好）  
+3. 得到独立域名，如 `https://sanskrit-sound.vercel.app`
 
 - 默认中文界面，右上角可切 **EN**
 - 已内置元音课原声（`public/audio/yuapp/`）
@@ -57,8 +72,8 @@ npm run dev
 ```
 做了个开源小项目「梵音 Svara」——
 把多邻国式闯关，做成了晨钟暮鼓里的梵语听音课。
-不是刷题，是听 ॐ、跟读、慢慢解锁。
-GitHub 可本地跑：github.com/Mirainthehub/sanskrit-sound
+在线直接玩：mirainthehub.github.io/sanskrit-sound
+源码：github.com/Mirainthehub/sanskrit-sound
 ```
 
 **小红书 / 公众号（略长）**

@@ -45,7 +45,7 @@ export function SoundTap({ exercise, onComplete }: Props) {
       >
         {sound.image ? (
           <img
-            src={`/images/${sound.image}`}
+            src={`${import.meta.env.BASE_URL}images/${sound.image}`}
             alt={sound.transliteration}
             className="max-h-28 max-w-full object-contain drop-shadow-[0_0_30px_rgba(201,169,98,0.2)]"
           />

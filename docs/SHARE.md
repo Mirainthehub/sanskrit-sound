@@ -8,12 +8,16 @@
 - 受不了语言 App 太吵？试试这个开源「梵音」
 - 学梵语不一定要刷题：听 ॐ，再认字
 
+## 在线链接
+
+**https://mirainthehub.github.io/sanskrit-sound/**
+
 ## 朋友圈（短）
 
 ```
 做了个开源「梵音 Svara」——
 多邻国式闯关 + Calm 式沉浸，学梵语先听音再认字。
-github.com/Mirainthehub/sanskrit-sound
+在线玩：mirainthehub.github.io/sanskrit-sound
 ```
 
 ## 小红书标签

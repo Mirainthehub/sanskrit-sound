@@ -49,7 +49,7 @@ export function useAudio() {
   const playSound = useCallback(
     async (audioKey?: string, speechText?: string) => {
       if (audioKey) {
-        const url = `/audio/${audioKey}.mp3`
+        const url = `${import.meta.env.BASE_URL}audio/${audioKey}.mp3`
         let el = audioCache.get(url)
         if (!el) {
           el = new Audio(url)
