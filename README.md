@@ -1,126 +1,164 @@
-# Svara — Sacred Sanskrit Sound
+# 梵音 Svara · 把语言学习做成晨钟暮鼓
 
-A meditative Sanskrit learning prototype: Duolingo-style progression meets Calm-like immersion, focused on sacred sound, mantra, and gentle practice.
+> **多邻国的闯关节奏 + Calm 的沉浸气质 + 曼陀罗持诵** —— 开源梵语/梵文声音修习 App（React · 可本地运行）
 
-## Run locally
+[![Live Demo](https://img.shields.io/badge/demo-本地运行-9a7b4f?style=for-the-badge)](https://github.com/Mirainthehub/sanskrit-sound#快速体验)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+
+**一句话：** 不是刷题背词，是**听音、持诵、温柔进阶** —— 适合想认真接触梵语声音的人，也适合想做一个「有灵魂的语言产品」的开发者。
+
+---
+
+## 为什么值得点开？
+
+| 传统语言 App | 梵音 Svara |
+|-------------|------------|
+| 卡通、连击、错题红叉 | 金夜色、慢动画、错了也温柔 |
+| 先背单词再发音 | **先听 sacred sound，再认字形** |
+| 焦虑感 streak | 「连续修习」「元气」—— 有进度，不吵闹 |
+| 通用课程 | 含**唐僧梵文**授权元音课 + 印度人原声（可扩展导入） |
+
+**适合转发给：** 瑜伽/冥想圈、佛学梵语爱好者、独立开发者、想做「差异化语言产品」的朋友。
+
+---
+
+## 快速体验
 
 ```bash
+git clone https://github.com/Mirainthehub/sanskrit-sound.git
 cd sanskrit-sound
 npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+浏览器打开 **http://localhost:5173** → 点 **「今日修习」** 或 **「修行之路」**。
 
-## MVP structure
-
-| Layer | MVP scope | Post-MVP |
-|-------|-----------|----------|
-| **Onboarding** | Home with intention + streak | Breath assessment, lineage preference |
-| **Path** | 2 units, linear unlock | Branching paths (devotion, grammar, chant) |
-| **Lessons** | 5 exercise types, 3 lessons | Spaced repetition, adaptive difficulty |
-| **Chamber** | Listen-only mantra gallery | Timed sits, ambient beds, bell intervals |
-| **Progress** | XP, streak, lesson completion | Soft hearts, daily intention, no harsh failure |
-| **Audio** | MP3 + speech fallback | Teacher recordings, pitch feedback |
-
-### User journey
-
-```
-Home → Today's practice (default lesson)
-     → Sacred Path (unit tree, locked progression)
-     → Mantra Chamber (immersive listening)
-Lesson → exercises → completion screen → path or home
-```
-
-### Exercise types (Duolingo-inspired, meditative tone)
-
-1. **sound-tap** — See Devanagari, listen twice, acknowledge (no grading anxiety)
-2. **listen-match** — Hear syllable, choose transliteration
-3. **meaning-reflect** — Symbolic meaning; gentle copy on “wrong” answers
-4. **mantra-chant** — Syllable-by-syllable chant with rounds
-5. **assemble** — Tap word bank to build phrases (So Ham, etc.)
-
-## Tech stack
-
-| Concern | Choice | Why |
-|---------|--------|-----|
-| UI | **React 19 + TypeScript** | Fast iteration, rich interactions |
-| Build | **Vite 6** | Lightweight dev server and builds |
-| Styling | **Tailwind CSS v4** | Minimal, cinematic tokens |
-| Motion | **Framer Motion** | Calm transitions, breathing UI |
-| State | **Zustand + persist** | Lesson progress without a backend |
-| Audio | **HTMLAudio + Web Speech API** | Prototype now; swap in real MP3s later |
-| Deploy | **Vercel / Netlify / static** | Zero server for MVP |
-
-### Suggested production additions
-
-- **Supabase** or **Firebase** — accounts, streak sync
-- **Howler.js** or **Tone.js** — cross-browser audio layering
-- **Web Audio recording** — optional pronunciation compare (post-MVP)
-- **PWA** — offline mantra chamber
-
-## Project layout
-
-```
-src/
-  data/lessons.ts      # Path units + lesson content (JSON-ready)
-  types/lesson.ts      # Exercise & lesson schemas
-  store/progress.ts    # XP, streak, unlock logic
-  hooks/useAudio.ts    # Pronunciation + chime feedback
-  components/          # UI + exercise renderers
-  pages/               # Home, Path, Chamber, Complete
-public/audio/          # Drop om.mp3, a.mp3, etc.
-```
-
-## Adding lessons
-
-Edit `src/data/lessons.ts`:
-
-1. Add a lesson id under a unit in `pathUnits`
-2. Define the full `Lesson` in `lessons` with `exercises[]`
-3. Optional: add `public/audio/{audioKey}.mp3`
-
-## 导入唐僧梵文课程（已授权）
-
-1. 复制环境变量模板并填入购课账号：
-
-```bash
-cp .env.example .env
-# 编辑 YUAPP_USERNAME / YUAPP_PASSWORD
-```
-
-2. 运行导入（会下载 MP3、字形图，并生成 `src/data/yuapp/lessons.generated.ts`）：
-
-```bash
-npm run import:yuapp
-```
-
-可选参数：
-
-```bash
-# 只导入首页公开示范 + 元音课目录（无需登录时的文本）
-npm run import:yuapp:public
-
-# 指定一课
-node scripts/import-yuapp.mjs --lesson 2/3
-
-# 指定分类：1=字母元音 2=初级 3=中级 4=佛经
-YUAPP_CATEGORIES=1,4 npm run import:yuapp
-```
-
-登录成功后，Devanagari 图与印度人朗读会自动写入 `public/audio/yuapp/` 与 `public/images/yuapp/`。
-
-## Adding real pronunciation audio
-
-See `public/audio/README.md`. Recorded mantra should be consistent level, minimal reverb, and tagged by `audioKey` in lesson data.
-
-## Design principles
-
-- **No cartoon gamification** — gold/indigo night palette, serif Devanagari, slow motion
-- **Listening before naming** — `sound-tap` requires multiple listens
-- **Failure is soft** — low chimes, reflective copy, hearts optional later
-- **Sacred framing** — intentions per lesson, “prāṇa” instead of “XP” in UI copy
+- 默认中文界面，右上角可切 **EN**
+- 已内置元音课原声（`public/audio/yuapp/`）
 
 ---
 
-Built as a lightweight prototype. Replace speech synthesis with teacher recordings before public launch.
+## 核心画面（打开 App 你会看到）
+
+1. **首页** — ॐ +「神圣梵音」+ 今日修习 / 修行之路 / 曼陀罗静室  
+2. **修行之路** — 线性解锁，像多邻国路径，但安静得多  
+3. **听音练习** — 触摸音节、听印度人朗读、辨认、持诵、拼句  
+4. **曼陀罗静室** — 只聆听，不闯关  
+
+> 建议本地跑起来录 15 秒屏，发小红书 / 朋友圈 / X，传播效果最好。
+
+---
+
+## 可直接复制的分享文案
+
+**朋友圈 / 微信群（短）**
+
+```
+做了个开源小项目「梵音 Svara」——
+把多邻国式闯关，做成了晨钟暮鼓里的梵语听音课。
+不是刷题，是听 ॐ、跟读、慢慢解锁。
+GitHub 可本地跑：github.com/Mirainthehub/sanskrit-sound
+```
+
+**小红书 / 公众号（略长）**
+
+```
+如果你想学梵语，但受不了多邻国那种卡通吵闹——
+可以试试「梵音 Svara」（开源）。
+
+它保留：路径解锁、每日修习、听音选词
+它拿掉：红叉焦虑、刷题感
+
+更像 Calm + 曼陀罗：先听 sacred sound，再认字。
+课程含唐僧梵文授权元音课 + 原声朗读。
+
+开发者：React + Vite，clone 就能跑。
+链接：github.com/Mirainthehub/sanskrit-sound
+
+#梵语 #冥想 #开源 #独立开发 #语言学习
+```
+
+**英文 / X（短）**
+
+```
+Svara — Sanskrit learning that feels like meditation, not drills.
+
+Duolingo-style path + Calm-like UI + mantra audio.
+Open source, runs locally.
+
+github.com/Mirainthehub/sanskrit-sound
+```
+
+---
+
+## 技术栈（给开发者）
+
+| 层 | 选型 |
+|----|------|
+| UI | React 19 + TypeScript + Tailwind v4 |
+| 动效 | Framer Motion |
+| 状态 | Zustand（进度本地持久化） |
+| 音频 | HTMLAudio + Web Speech 回退 |
+| 课程导入 | `scripts/import-yuapp.mjs`（唐僧梵文站，需授权账号） |
+| 国际化 | 中 / 英一键切换 |
+
+### 项目结构
+
+```
+src/
+  pages/          # 首页、路径、静室、课时
+  components/     # 练习题型（听音、辨认、持诵、拼句…）
+  data/lessons.ts # 核心课 + yuapp 导入课
+  i18n/           # 中英文案
+public/audio/     # 发音 MP3
+```
+
+### 练习类型
+
+1. **sound-tap** — 听两遍再继续  
+2. **listen-match** — 听音选转写  
+3. **meaning-reflect** — 象征意义（答错也温柔）  
+4. **mantra-chant** — 分音节跟诵  
+5. **assemble** — 词库拼句（如 So Ham）
+
+---
+
+## 导入更多唐僧梵文课程
+
+需已购课账号，**切勿将 `.env` 提交到 Git**。
+
+```bash
+cp .env.example .env
+# 填写 YUAPP_USERNAME / YUAPP_PASSWORD
+
+npm run import:yuapp
+# 或只导入元音：YUAPP_CATEGORIES=1 npm run import:yuapp
+```
+
+---
+
+## 设计原则
+
+- 不卡通、不羞辱式错题  
+- 先听后记  
+- 每课一句「修习意图」  
+- 内容授权自 [唐僧梵文](https://sanskrit.yuapp.top)，公开仓库请自行确认分发权限  
+
+---
+
+## English summary
+
+**Svara** is an open-source, meditative Sanskrit sound-learning prototype: gentle progression inspired by Duolingo, immersion inspired by Calm, focused on mantra, listening, and transliteration — not vocabulary drills.
+
+```bash
+npm install && npm run dev
+```
+
+MIT License · Contributions welcome.
+
+---
+
+<p align="center">
+  <strong>如果这个项目对你有启发，欢迎 Star · Fork · 转发给需要安静学语言的朋友</strong>
+</p>

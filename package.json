@@ -1,7 +1,8 @@
 {
   "name": "sanskrit-sound",
+  "description": "梵音 Svara — 冥想式梵语听音学习：多邻国路径 + Calm 气质 + 曼陀罗持诵（开源）",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -9,7 +9,7 @@ export const zh: Messages = {
     titleLine1: '神圣',
     titleLine2: '梵音',
     tagline:
-      '通过曼陀罗、呼吸与共鸣学习梵语——不是刷题，而是一条聆听、持诵、温柔觉醒的路。',
+      '多邻国的温柔节奏，Calm 的沉浸气质——不刷题，只听音、持诵、一步一步醒来。',
     streakLabel: '连续修习',
     xpLabel: '已得元气',
     attribution: '课程内容授权自',

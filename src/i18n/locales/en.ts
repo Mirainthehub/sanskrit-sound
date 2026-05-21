@@ -9,7 +9,7 @@ export const en: Messages = {
     titleLine1: 'Sacred',
     titleLine2: 'sound',
     tagline:
-      'Learn Sanskrit through mantra, breath, and resonance — not drills. A path of listening, chanting, and gentle awakening.',
+      'Duolingo-style progression, Calm-style stillness — listen, chant, wake gently. No drills.',
     streakLabel: 'day presence',
     xpLabel: 'prāṇa earned',
     attribution: 'Content licensed from',

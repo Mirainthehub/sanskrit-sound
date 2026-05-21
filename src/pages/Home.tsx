@@ -57,7 +57,7 @@ export function Home({ onBegin, onPath, onChamber, streak, totalXp }: HomeProps)
           </span>
         </motion.div>
 
-        <p className="mt-8 text-center text-[10px] tracking-wide text-mist/50">
+        <p className="mt-8 text-center text-[10px] leading-relaxed tracking-wide text-mist/50">
           {t.home.attribution}{' '}
           <a
             href="https://sanskrit.yuapp.top"
@@ -66,6 +66,15 @@ export function Home({ onBegin, onPath, onChamber, streak, totalXp }: HomeProps)
             className="text-gold/60 hover:text-gold"
           >
             {t.home.attributionLink}
+          </a>
+          <span className="mx-1">·</span>
+          <a
+            href="https://github.com/Mirainthehub/sanskrit-sound"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gold/60 hover:text-gold"
+          >
+            {locale === 'zh' ? '开源 · Star' : 'Open source'}
           </a>
         </p>
 
