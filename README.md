@@ -28,9 +28,12 @@
 
 ### 在线 Demo（免安装）
 
-**https://mirainthehub.github.io/sanskrit-sound/**
+| 地区 | 链接 |
+|------|------|
+| 海外 / 可访问 GitHub | **https://mirainthehub.github.io/sanskrit-sound/** |
+| **国内用户** | 见 **[国内免费部署指南](docs/deploy-china.md)**（Gitee Pages / 腾讯云 Webify / EdgeOne 等） |
 
-推送到 `main` 后会自动部署（约 1–2 分钟）。点 **「今日修习」** 即可试听。
+GitHub Pages 在国内常无法打开，请在 Gitee 等平台部署同一项目，不是「映射」GitHub，而是重新托管 `dist`。
 
 ### 本地运行
 
